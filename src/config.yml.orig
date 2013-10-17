@@ -1,22 +1,22 @@
 # MySQL
 mysql:
-  user: altcointip
-  pass: altcointip123
+  user: frankotip
+  pass: frankotip123
   host: localhost
   port: 3306
-  db: altcointip
+  db: frankotip
 
 # Reddit
 reddit:
-  user: myaltcointip
-  pass: myaltcointip123
+  user: frankotip
+  pass: frankotip123
   batch-limit: 1000
-  useragent: /u/myaltcointip
+  useragent: /u/frankotip
   scan:
     my-subreddits: false
     these-subreddits: ["all"]
     ignore-subreddits: ["test"]
-  help-url: http://www.reddit.com/r/myaltcointip/wiki/index
+  help-url: http://www.reddit.com/r/frankotip/wiki/index
   comments:
     verify: true
     pending: false
@@ -26,14 +26,14 @@ reddit:
     sorry: true
   banned_users:
 #    method: subreddit
-#    subreddit: myaltcointip
+#    subreddit: frankotip
     method: list
-    list: [myaltcointip, bitcointip]
+    list: [frankotip, bitcointip, altcointip]
   stats:
     enabled: false
-    subreddit: myaltcointip
+    subreddit: frankotip
     page: stats
-    url: http://www.reddit.com/r/ALTcointip/wiki/stats
+    url: http://www.reddit.com/r/frankotip/wiki/stats
     sql:
       01_total_tipped_usd:
         name: "Total Accepted Tips (USD)"
@@ -101,7 +101,7 @@ regex:
     num: '([0-9]{1,9}(?:\.[0-9]{0,8})?)'
     keyword: '(all|flip|roll|upvote|pi|e|leet|quarter|half|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)'
   keywords:
-    givetip: '(/u/myaltcointip|myaltcointip)'
+    givetip: '(/u/frankotip|frankotip)'
     info: '(info)'
     register: '(register)'
     accept: '(accept)'
@@ -183,162 +183,25 @@ fiat:
 
 # Cryptocoins
 cc:
-  # Bitcoin
+  # Franko
   btc:
     enabled: false
     unit: btc
     name: Bitcoin
-    conf-file: '/opt/altcointip/coins/bitcoin/bitcoin.conf'
+    conf-file: '~/.franko/franko.conf'
     minconf:
       givetip: 1
       withdraw: 10
     txmin:
       givetip: 0.0001
-      withdraw: 0.0049
+      withdraw: 0.0002
     txfee: 0.0001
     walletpassphrase: mypass1
     explorer:
-      address: 'http://blockchain.info/address/'
-      transaction: 'http://blockchain.info/tx/'
+      address: 'http://frk.cryptocoinexplorer.com/'
+      transaction: 'http://frk.cryptocoinexplorer.com/tx/'
     regex:
       address: '([1|3][1-9a-z]{20,40})'
-      units: '(btc|bitcoin|bitcoins)'
-  # Litecoin
-  ltc:
-    enabled: false
-    unit: ltc
-    name: Litecoin
-    conf-file: '/opt/altcointip/coins/litecoin/litecoin.conf'
-    minconf:
-      givetip: 1
-      withdraw: 10
-    txmin:
-      givetip: 0.01
-      withdraw: 0.48
-    txfee: 0.02
-    walletpassphrase: mypass1
-    explorer:
-      address: 'http://explorer.litecoin.net/address/'
-      transaction: 'http://explorer.litecoin.net/tx/'
-    regex:
-      address: '(L[1-9a-z]{20,40})'
-      units: '(ltc|litecoin|litecoins)'
-  # PPCoin
-  ppc:
-    enabled: false
-    unit: ppc
-    name: Peercoin
-    conf-file: '/opt/altcointip/coins/ppcoin/ppcoin.conf'
-    minconf:
-      givetip: 1
-      withdraw: 10
-    txmin:
-      givetip: 0.05
-      withdraw: 0.5
-    txfee: 0.01
-    walletpassphrase: mypass1
-    explorer:
-      address: 'http://www.cryptocoinexplorer.com:2750/address/'
-      transaction: 'http://www.cryptocoinexplorer.com:2750/tx/'
-    regex:
-      address: '(P[1-9a-z]{20,40})'
-      units: '(ppc|ppcoin|ppcoins|peercoin|peercoins|p2pcoin|p2pcoins)'
-  # Namecoin
-  nmc:
-    enabled: false
-    unit: nmc
-    name: Namecoin
-    conf-file: '/opt/altcointip/coins/namecoin/namecoin.conf'
-    minconf:
-      givetip: 1
-      withdraw: 10
-    txmin:
-      givetip: 0.01
-      withdraw: 0.49
-    txfee: 0.01
-    explorer:
-      address: 'http://explorer.dot-bit.org/a/'
-      transaction: 'http://explorer.dot-bit.org/tx/'
-    regex:
-      address: '([N|M][1-9a-z]{20,40})'
-      units: '(nmc|namecoin|namecoins)'
-  # Novacoin
-  nvc:
-    enabled: false
-    unit: nvc
-    name: Novacoin
-    conf-file: '~/.novacoin/novacoin.conf'
-    minconf:
-      givetip: 1
-      withdraw: 10
-    txmin:
-      givetip: 0.01
-      withdraw: 0.49
-    txfee: 0.01
-    walletpassphrase: mypass1
-    explorer:
-      address: 'http://www.cryptocoinexplorer.com:6750/address/'
-      transaction: 'http://www.cryptocoinexplorer.com:6750/tx/'
-    regex:
-      address: '(4[1-9a-z]{20,40})'
-      units: '(nvc|novacoin|novacoins)'
-  # Terracoin
-  trc:
-    enabled: false
-    unit: trc
-    name: Terracoin
-    conf-file: '~/.terracoin/terracoin.conf'
-    minconf:
-      givetip: 1
-      withdraw: 10
-    txmin:
-      givetip: 0.01
-      withdraw: 0.49
-    txfee: 0.01
-    walletpassphrase: mypass1
-    explorer:
-      address: 'http://www.cryptocoinexplorer.com:3750/address/'
-      transaction: 'http://www.cryptocoinexplorer.com:3750/tx/'
-    regex:
-      address: '(1[1-9a-z]{20,40})'
-      units: '(trc|terracoin|terracoins)'
-  # Devcoin
-  dvc:
-    enabled: false
-    unit: dvc
-    name: Devcoin
-    conf-file: '~/.devcoin/devcoin.conf'
-    minconf:
-      givetip: 1
-      withdraw: 10
-    txmin:
-      givetip: 1
-      withdraw: 4
-    txfee: 1
-    explorer:
-      address: 'http://darkgamex.ch:2751/address/'
-      transaction: 'http://darkgamex.ch:2751/tx/'
-    regex:
-      address: '(1[1-9a-z]{20,40})'
-      units: '(dvc|devcoin|devcoins)'
-  # Primecoin
-  xpm:
-    enabled: false
-    unit: xpm
-    name: Primecoin
-    conf-file: '/opt/altcointip/coins/primecoin/primecoin.conf'
-    minconf:
-      givetip: 10
-      withdraw: 180
-    txmin:
-      givetip: 0.01
-      withdraw: 0.49
-    txfee: 0.01
-    walletpassphrase: mypass1
-    explorer:
-      address: 'http://primecoin.21stcenturymoneytalk.org/?addr='
-      transaction: 'http://primecoin.21stcenturymoneytalk.org/?tx='
-    regex:
-      address: '(A[1-9a-z]{20,40})'
-      units: '(xpm|primecoin|primecoins)'
+      units: '(frk|franko|frankos)'
+
 ﻿# -*- coding: utf-8 -*-
